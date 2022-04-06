@@ -61,16 +61,15 @@
             <div id="button" style="text-align: center;">
                 You are currently not sharing data with Connect.
                 Click the button to start sharing annonymous usage data.
-                (You can stop sharing any time).<br />
-                <button onclick="connect();">
+                (You can stop sharing any time)<br />
+                <button onclick="hello('connect').login()">
                     Connect
                 </button>
             </div>
         </div>
-        <script>
-            const connect = () => {
-                alert("Connect!");
-            }
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hellojs/2.0.0-4/hello.all.js"></script>
+        <script src="./hello-connect.js"></script>
+        <!-- <script src="./hello-oauth-shim-server.js"></script> -->
+        <script src="./hello-init.js"></script>
     </body>
 </html>
