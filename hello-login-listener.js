@@ -1,7 +1,7 @@
-hello.on('auth.login', function(auth) {
+hello.on('auth.login', function (auth) {
 
 	// Call user information, for the given network
-	hello(auth.network).api('me').then(function(r) {
+	hello(auth.network).api('me').then(function (r) {
 		// Inject it into the container
 		var label = document.getElementById('profile_' + auth.network);
 		if (!label) {
