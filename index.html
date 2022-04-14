@@ -77,14 +77,43 @@
             <button onclick="hello('connect').login()">
                 Connect
             </button>
+            <button onclick="get_Data()">
+                Data
+            </button>
+            <button onclick="bye('Disconnect')">
+                Disconnect
+            </button>
         </div>
     </div>
-    <!-- <script src="./node_modules/hellojs/dist/hello.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hellojs/2.0.0-4/hello.all.js"></script>
-    <!-- <script src ="https://github.com/MrSwitch/hello.js/blob/master/redirect.html"></script> -->
+    <script src="./node_modules/hellojs/dist/hello.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/hellojs/2.0.0-4/hello.all.js"></script> -->
     <script src="./hello-connect.js"></script>
-    <!-- <script src="./hello-oauth-shim-server.js"></script> -->
     <script src="./hello-init.js"></script>
+    <script>
+        function bye(){
+        hello('connect').logout().then(function(){
+            alert('Signed Out');
+        }, function(e){
+            alert('You didnot sign in :-)');
+        });}
+    </script>
+    <script>
+        function get_Data(){
+            var online = function(session){
+                var currentTime =(new Date()).getTime()/1000;
+                return session && session.access_token && session.expires > currentTime;
+            };
+
+            var token_value = function(session){
+
+                return session.access_token;
+            };
+            var connect_token= hello('connect').getAuthResponse();
+            alert((online(connect_token) ? 'Signed' : 'Not signed') + ' into Connect');
+            // alert(token_value(connect_token));
+        }
+    </script>
+
 </body>
 
 </html>

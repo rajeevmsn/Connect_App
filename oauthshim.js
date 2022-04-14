@@ -23,4 +23,4 @@ oauthshim.init([{
 ]);
 app.listen(3500);
 console.log('listening to port 3500')
-//Note for beginners, don't forget to run your local sever (cd file location and npm servername)
+//Note for beginners, don't forget to run your local sever (cd file location and node servername)
