@@ -20,32 +20,31 @@
         </div>
         <div id="message" style="text-align: center;">
             <div id="message-disconnected">
-            You are currently not sharing data with Connect.
-            Click the button to start sharing annonymous usage data.
-            (You can stop sharing any time)<br />
+                You are currently not sharing data with Connect.
+                Click the button to start sharing annonymous usage data.
+                (You can stop sharing any time)<br />
 
                 <button id="connect" onclick="connect()">
-                Connect
-            </button>
+                    Connect
+                </button>
             </div>
             <div id="message-connected">
                 You are currently sharing data with Connect.
                 Click the Disconnect button to stop sharing.<br />
                 <button id="send-data" onclick="sendData()">
                     Send Data
-            </button>
+                </button>
                 <button id="get-data" onclick="getData()">
                     Get Data
                 </button>
                 <button id="disconnect" onclick="disconnect()">
-                Disconnect
-            </button>
-        </div>
+                    Disconnect
+                </button>
+            </div>
 
         </div>
     </div>
     <script src="./node_modules/hellojs/dist/hello.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/hellojs/2.0.0-4/hello.all.js"></script> -->
     <script src="./hello-connect.js"></script>
     <script src="./config-client.js"></script>
     <script>
@@ -56,22 +55,7 @@
             redirect_uri: redirectURI
         });
     </script>
-    <script>
-        function get_Data(){
-            var online = function(session){
-                var currentTime =(new Date()).getTime()/1000;
-                return session && session.access_token && session.expires > currentTime;
-            };
-
-            var token_value = function(session){
-
-                return session.access_token;
-            };
-            var connect_token= hello('connect').getAuthResponse();
-            alert((online(connect_token) ? 'Signed' : 'Not signed') + ' into Connect');
-            // alert(token_value(connect_token));
-        }
-    </script>
+    <script src="index.js"></script>
 
 </body>
 
