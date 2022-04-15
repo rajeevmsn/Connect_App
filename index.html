@@ -18,19 +18,30 @@
                 <circle r="20px" cx="21px" cy="21px" fill="none" stroke="grey" stroke-width="0.5px"></circle>
             </svg>
         </div>
-        <div id="button" style="text-align: center;">
+        <div id="message" style="text-align: center;">
+            <div id="message-disconnected">
             You are currently not sharing data with Connect.
             Click the button to start sharing annonymous usage data.
             (You can stop sharing any time)<br />
-            <button onclick="hello('connect').login()">
+
+                <button id="connect" onclick="connect()">
                 Connect
             </button>
-            <button onclick="get_Data()">
-                Data
+            </div>
+            <div id="message-connected">
+                You are currently sharing data with Connect.
+                Click the Disconnect button to stop sharing.<br />
+                <button id="send-data" onclick="sendData()">
+                    Send Data
             </button>
-            <button onclick="bye('Disconnect')">
+                <button id="get-data" onclick="getData()">
+                    Get Data
+                </button>
+                <button id="disconnect" onclick="disconnect()">
                 Disconnect
             </button>
+        </div>
+
         </div>
     </div>
     <script src="./node_modules/hellojs/dist/hello.js"></script>
