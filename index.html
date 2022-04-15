@@ -49,12 +49,12 @@
     <script src="./hello-connect.js"></script>
     <script src="./config-client.js"></script>
     <script>
-        function bye(){
-        hello('connect').logout().then(function(){
-            alert('Signed Out');
-        }, function(e){
-            alert('You didnot sign in :-)');
-        });}
+        hello.init({
+            connect: clientId
+        }, {
+            oauth_proxy: oauthProxy,
+            redirect_uri: redirectURI
+        });
     </script>
     <script>
         function get_Data(){
