@@ -1,3 +1,3 @@
-const clientId = "pub_xxx";
-const oauthProxy = "http://localhost:3500/oauthproxy";
-const redirectURI = "redirect.html";
+const clientId = 'pub_xxx';
+const oauthProxy = 'http://localhost:3500/oauthproxy';
+const redirectURI = 'redirect.html';

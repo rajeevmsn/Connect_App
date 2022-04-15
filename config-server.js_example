@@ -1,5 +1,5 @@
 module.exports = {
-    clientId: "pub_xxx", // obtained from Connect
-    secretKey: "sec_xxx", // obtained from Connect
-    domain: "http://127.0.0.1:8080/"
+  clientId: 'pub_xxx', // obtained from Connect
+  secretKey: 'sec_xxx', // obtained from Connect
+  domain: 'http://127.0.0.1:8080/'
 };
