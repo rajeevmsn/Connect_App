@@ -8,6 +8,7 @@
 <body>
     <div id="header">
         <!-- <a href="" onclick="signin();">Sign in</a> -->
+        <div id="profile_connect">[]</div>
     </div>
     <div id="content">
         <div id="logo">
@@ -29,32 +30,20 @@
                 </button>
             </div>
             <div id="message-connected">
-                You are currently sharing data with Connect.
-                Click the Disconnect button to stop sharing.<br />
+                You are currently sharing data with Connect.<br />
+                To stop sharing, <a href="" onclick="disconnect()">disconnect</a>.</br>
                 <button id="send-data" onclick="sendData()">
                     Send Data
                 </button>
                 <button id="get-data" onclick="getData()">
                     Get Data
                 </button>
-                <button id="disconnect" onclick="disconnect()">
-                    Disconnect
-                </button>
             </div>
 
         </div>
     </div>
     <script src="./node_modules/hellojs/dist/hello.js"></script>
-    <script src="./hello-connect.js"></script>
     <script src="./config-client.js"></script>
-    <script>
-        hello.init({
-            connect: clientId
-        }, {
-            oauth_proxy: oauthProxy,
-            redirect_uri: redirectURI
-        });
-    </script>
     <script src="index.js"></script>
 
 </body>
