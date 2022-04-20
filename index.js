@@ -54,6 +54,7 @@ const initHello = () => {
   hello.on('auth.login', (auth) => {
     hello(auth.network).api('me')
       .then(function (r) {
+        console.log('response:', r);
         let label = document.getElementById('profile_' + auth.network);
         if (!label) {
           label = document.createElement('div');
