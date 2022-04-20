@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 /* global hello, config */
+/* exported connect disconnect online tokenValue sendData getData */
 
 let response;
 
@@ -16,6 +17,7 @@ const connect = () => {
   hello('connect').login()
     .then((res) => {
       response = res;
+      console.log(response);
       displayConnected();
     });
 };
@@ -31,7 +33,7 @@ const disconnect = () => {
 };
 
 const online = (session) => {
-  const currentTime = (new Date()).getTime()/1000;
+  const currentTime = (new Date()).getTime() / 1000;
 
   return session && session.access_token && session.expires > currentTime;
 };
@@ -79,7 +81,7 @@ const initHello = () => {
 const init = () => {
   initHello();
 
-  const connectToken= hello('connect').getAuthResponse();
+  const connectToken = hello('connect').getAuthResponse();
 
   const isConnected = online(connectToken);
 

@@ -1,7 +1,9 @@
+/* eslint-disable camelcase */
+
 const config = require('./config-server.js');
-const oauthshim = require('oauth-shim'),
+const bodyParser = require('body-parser'),
   express = require('express'),
-  bodyParser = require('body-parser');
+  oauthshim = require('oauth-shim');
 //maker sure you installed oauth-shim,express and body-parser
 
 const app = express();
@@ -14,7 +16,7 @@ app.all('/oauthproxy', oauthshim);
 // Initiate the shim with Client ID's and secret, e.g.
 oauthshim.init([
   {
-  // id : secret
+    // id : secret
     client_id: config.clientId, //Enter your client id
     client_secret: config.secretKey, //Enter yout secret key
     // Define the grant_url where to exchange Authorisation codes for tokens
