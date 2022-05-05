@@ -38,19 +38,13 @@ const online = (session) => {
   return session && session.access_token && session.expires > currentTime;
 };
 
+
 const tokenValue = (session) => session.access_token;
 const connectURL = 'https://connect-project.io';
 
+
 const userId = (accessToken) => {
 
-  /*
-  curl --request GET \
-  --url $CONNECT_URL/oauth/user \
-  --header 'Authorization: Bearer '$access_token
-
-  Response:
-  { "id": "xxxx" }
-  */
   const testGet = new XMLHttpRequest();
   testGet.open('GET', `${connectURL}/oauth/user`);
   testGet.setRequestHeader('Authorization', `Bearer ${accessToken}`);
@@ -63,14 +57,14 @@ const userId = (accessToken) => {
   testGet.send();
 };
 
-/*
-const gameScore = (sessionToken, accessToken) => {
+
+const gameScore = (accessToken) => {
 
   const getScore = new XMLHttpRequest();
   getScore.open('GET', `${connectURL}/parse/classes/GameScore`);
 
   getScore.setRequestHeader('x-parse-application-id', 'connect');
-  getScore.setRequestHeader('x-parse-session-token', `${sessionToken}`);
+  //getScore.setRequestHeader('x-parse-session-token', `${sessionToken}`);
   getScore.setRequestHeader('Authorization', `Bearer ${accessToken}`);
 
   getScore.onreadystatechange = function () {
@@ -81,7 +75,7 @@ const gameScore = (sessionToken, accessToken) => {
   };
   getScore.send();
 };
-*/
+
 const getData = () => {
 
   // alert(getData);
@@ -89,19 +83,22 @@ const getData = () => {
   const accessToken = sessionInfo.access_token;
   //const sessionToken = sessionInfo.session_state;
   userId(accessToken);
-  //gameScore(sessionToken, accessToken);
+  //console.log(userId);
+  gameScore(accessToken);
 };
 
-const sendData = () => {
-  const timeStamp = new Date();
-  alert(timeStamp);
 
-  /*
+const sendData = () => {
+  //const timeStamp = new Date();
+  //alert(timeStamp);
   const sessionInfo = hello('connect').getAuthResponse();
   const accessToken = sessionInfo.access_token;
-  const objectId = userId(accessToken);
+  //sendScore(accessToken);
+  //const objectId = userId(accessToken);
+
+
   const sendScore = new XMLHttpRequest();
-  sendScore.open('GET', `${connectURL}/parse/classes/GameScore${objectId}`);
+  sendScore.open('POST', `${connectURL}/parse/classes/GameScore`);
 
   sendScore.setRequestHeader('content-type', 'application/json');
   sendScore.setRequestHeader('x-parse-application-id', 'connect');
@@ -114,13 +111,13 @@ const sendData = () => {
     }
   };
   var data = `{
-    "score":1338,
-    "playerName":"sample",
-    "cheatMode":false,
+    "score":1024,
+    "playerName":"rayito",
+    "cheatMode":false
   }`;
   sendScore.send(data);
-  */
 };
+
 
 const initHello = () => {
   // configure Connect network
